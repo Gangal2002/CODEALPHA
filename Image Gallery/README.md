@@ -16,11 +16,8 @@ A responsive **Image Gallery** built using **HTML, CSS, and JavaScript** as part
 ## 📸 Screenshots  
 
 ### Gallery View  
-![Gallery Screenshot](screenshots/gallery.png)  
+![Gallery Screenshot](C:\Users\admin\OneDrive\Pictures\Screenshots\Screenshot (59).png)  
 
 ### Lightbox View  
 ![Lightbox Screenshot](screenshots/lightbox.png)  
 
-*(Screenshots will be visible once added in the `screenshots/` folder of this repo)*  
-
----
