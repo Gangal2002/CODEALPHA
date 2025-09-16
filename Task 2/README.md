@@ -23,6 +23,6 @@ A responsive **Calculator** built using **HTML, CSS, and JavaScript** as part of
 
 ### Calculator View  
  
-<img width="1920" height="864" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/12c3e61e-c913-449e-be85-bfe4885eef6d" /> <img width="1920" height="1080" alt="Screenshot (61)" src="https://github.com/user-attachments/assets/cfd23a81-bcc2-4cd5-94e6-8e60635bf255" />
+<img width="1920" height="864" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/12c3e61e-c913-449e-be85-bfe4885eef6d" />
 
-
+---
