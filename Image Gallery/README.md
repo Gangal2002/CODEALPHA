@@ -16,4 +16,4 @@ A responsive **Image Gallery** built using **HTML, CSS, and JavaScript** as part
 ## 📸 Screenshots  
 
 ### Gallery View  
-<img src="C:\Users\admin\OneDrive\Pictures\Screenshots\Screenshot (59).png" alt="Image Gallery">
+![image alt](https://github.com/Gangal2002/CODEALPHA/blob/98c2bee68001ba8e93ae197140f60e09e50f47d4/Image%20Gallery/Screenshot%20(59).png)
