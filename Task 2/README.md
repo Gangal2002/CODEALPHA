@@ -1,6 +1,6 @@
 # 🖩 Calculator  
 
-A responsive **Calculator** built using **HTML, CSS, and JavaScript** as part of my internship task at CodeSoft / CodeAlpha.  
+A responsive **Calculator** built using **HTML, CSS, and JavaScript** as part of my internship task at CodeAlpha.  
 
 ---
 
@@ -27,5 +27,3 @@ A responsive **Calculator** built using **HTML, CSS, and JavaScript** as part of
 
 ---
 
-
-## 🗂️ Folder Structure
