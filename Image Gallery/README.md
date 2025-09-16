@@ -14,7 +14,7 @@ A responsive **Image Gallery** built using **HTML, CSS, and JavaScript** as part
 
 ---
 
-## 📸 Screenshots  
+## 📸 Screenshot
 
 ### Gallery View  
 <img width="1920" height="866" alt="Screenshot (59)" src="https://github.com/user-attachments/assets/d018a427-8264-403e-acfa-ec4398ac7601" />
