@@ -11,9 +11,10 @@ A responsive **Image Gallery** built using **HTML, CSS, and JavaScript** as part
 - 🏷️ Category filters (**Nature, City, Animals**)  
 - ⚡ Lightweight and easy to run (just open in browser)  
 
+
 ---
 
 ## 📸 Screenshots  
 
 ### Gallery View  
-<img src="https://github.com/Gangal2002/CODEALPHA/blob/98c2bee68001ba8e93ae197140f60e09e50f47d4/Image%20Gallery/Screenshot%20(59).png">
+<img width="1920" height="866" alt="Screenshot (59)" src="https://github.com/user-attachments/assets/d018a427-8264-403e-acfa-ec4398ac7601" />
