@@ -1,296 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Responsive Image Gallery — Lightbox + Filters</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegant Image Gallery</title>
   <style>
-    :root{
-      --gap:16px;
-      --max-width:1200px;
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#7dd3fc;
-      --muted:#94a3b8;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, sans-serif;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,var(--bg) 0%, #071022 100%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:40px 20px;
-      display:flex;justify-content:center;
+
+    body {
+      background: linear-gradient(135deg, #f8f9fa, #e3e6f0);
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
     }
-    .wrap{max-width:var(--max-width);width:100%}
 
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:12px}
-    h1{font-size:20px;margin:0}
-    p.lead{margin:0;color:var(--muted);font-size:13px}
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
 
-    /* Controls */
-    .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-    .btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:8px 12px;border-radius:10px;color:inherit;cursor:pointer;font-size:13px}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#012029;border:0}
-    .btn.toggle.active{outline:2px solid rgba(125,211,252,0.12)}
+    /* Filter buttons */
+    .filter-buttons {
+      margin-bottom: 20px;
+    }
+    .filter-buttons button {
+      margin: 5px;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 20px;
+      background: #333;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .filter-buttons button:hover {
+      background: #ff9800;
+    }
 
     /* Gallery grid */
-    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);align-items:start}
-    .card{position:relative;overflow:hidden;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);box-shadow:0 6px 22px rgba(2,6,23,0.6);cursor:pointer}
-    .card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.2,.9,.25,1), filter .3s ease}
-    .card:hover img{transform:scale(1.06)}
-    .meta{position:absolute;left:10px;bottom:10px;background:linear-gradient(90deg,rgba(2,6,23,0.6),rgba(2,6,23,0.2));padding:8px 10px;border-radius:10px;font-size:13px}
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
 
-    /* Responsive breakpoints */
-    @media (max-width:1000px){.gallery{grid-template-columns:repeat(3,1fr)} .card img{height:180px}}
-    @media (max-width:700px){.gallery{grid-template-columns:repeat(2,1fr)} .card img{height:160px}}
-    @media (max-width:420px){.gallery{grid-template-columns:repeat(1,1fr)} .card img{height:240px}}
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      opacity: 0.9;
+    }
 
     /* Lightbox */
-    .lightbox{position:fixed;inset:0;background:rgba(2,6,23,0.75);display:flex;align-items:center;justify-content:center;z-index:60;opacity:0;pointer-events:none;transition:opacity .2s ease}
-    .lightbox.open{opacity:1;pointer-events:auto}
-    .lightbox-inner{max-width:90vw;max-height:90vh;position:relative;display:flex;flex-direction:column;align-items:center}
-    .lightbox img{max-width:100%;max-height:80vh;border-radius:10px;box-shadow:0 16px 50px rgba(2,6,23,0.8);transition:transform .3s ease}
-    .caption{margin-top:12px;color:var(--muted);font-size:14px}
-    .lb-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);border:0;color:white;padding:12px;border-radius:10px;cursor:pointer}
-    .lb-btn.left{left:8px}
-    .lb-btn.right{right:8px}
-    .lb-close{position:absolute;right:12px;top:12px;background:transparent;border:0;color:var(--muted);font-size:20px;padding:6px;cursor:pointer}
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 1000;
+    }
 
-    /* Filters UI */
-    .filters{display:flex;gap:8px;flex-wrap:wrap}
-    .filters .category{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);cursor:pointer;font-size:13px}
-    .filters .category.active{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#002b33;border:0}
+    .lightbox.active {
+      visibility: visible;
+      opacity: 1;
+    }
 
-    /* Image filter badges */
-    .filter-pills{display:flex;gap:8px;align-items:center}
+    .lightbox img {
+      max-width: 85%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.7);
+    }
 
-    /* subtle entrance */
-    .card{transform:translateY(6px);opacity:0;animation:pop .45s forwards}
-    .card:nth-child(1){animation-delay:0.04s}
-    .card:nth-child(2){animation-delay:0.06s}
-    .card:nth-child(3){animation-delay:0.08s}
-    .card:nth-child(4){animation-delay:0.1s}
-    @keyframes pop{to{transform:none;opacity:1}}
+    .lightbox .close,
+    .lightbox .prev,
+    .lightbox .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      padding: 12px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .lightbox .close {
+      top: 10%;
+      right: 5%;
+      transform: none;
+    }
+    .lightbox .prev { left: 5%; }
+    .lightbox .next { right: 5%; }
+
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>Responsive Image Gallery</h1>
-        <p class="lead">Click images to open lightbox — keyboard arrows, touch, and filters supported.</p>
-      </div>
+  <h1>Image Gallery</h1>
 
-      <div class="controls">
-        <div class="filters" role="toolbar" aria-label="Image categories">
-          <button class="category active" data-cat="all">All</button>
-          <button class="category" data-cat="nature">Nature</button>
-          <button class="category" data-cat="city">City</button>
-          <button class="category" data-cat="people">People</button>
-        </div>
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button onclick="filterImages('all')">All</button>
+    <button onclick="filterImages('nature')">Nature</button>
+    <button onclick="filterImages('city')">City</button>
+    <button onclick="filterImages('animals')">Animals</button>
+  </div>
 
-        <div class="filter-pills" style="margin-left:6px">
-          <button class="btn toggle" id="grayscale">Grayscale</button>
-          <button class="btn toggle" id="sepia">Sepia</button>
-          <button class="btn" id="clearFilters">Clear</button>
-        </div>
-      </div>
-    </header>
+  <!-- Gallery -->
+  <div class="gallery">
+    <!-- Nature -->
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" class="nature" alt="Nature 1">
+    <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80" class="nature" alt="Nature 2">
 
-    <main>
-      <section class="gallery" id="gallery">
-        <!-- Each card has data attributes for category and caption -->
-        <!-- Using picsum.photos seeds for demo images -->
+    <!-- City -->
+    <img src="https://tse3.mm.bing.net/th/id/OIP.efaQ-xEsIzmdKjZra0C4PgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" class="city" alt="City 1">
+    <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80" class="city" alt="City 2">
 
-        <article class="card" data-cat="nature" data-caption="Misty mountain lake">
-          <img src="https://picsum.photos/seed/nature1/1200/800" alt="Misty mountain lake" loading="lazy">
-          <div class="meta">Nature</div>
-        </article>
-
-        <article class="card" data-cat="city" data-caption="Night city lights">
-          <img src="https://picsum.photos/seed/city1/1200/800" alt="Night city lights" loading="lazy">
-          <div class="meta">City</div>
-        </article>
-
-        <article class="card" data-cat="people" data-caption="Portrait in sunlight">
-          <img src="https://picsum.photos/seed/people1/1200/800" alt="Portrait in sunlight" loading="lazy">
-          <div class="meta">People</div>
-        </article>
-
-        <article class="card" data-cat="nature" data-caption="Forest path in autumn">
-          <img src="https://picsum.photos/seed/nature2/1200/800" alt="Forest path in autumn" loading="lazy">
-          <div class="meta">Nature</div>
-        </article>
-
-        <article class="card" data-cat="city" data-caption="Modern architecture close-up">
-          <img src="https://picsum.photos/seed/city2/1200/800" alt="Modern architecture close-up" loading="lazy">
-          <div class="meta">City</div>
-        </article>
-
-        <article class="card" data-cat="people" data-caption="Smiling candid moment">
-          <img src="https://picsum.photos/seed/people2/1200/800" alt="Smiling candid moment" loading="lazy">
-          <div class="meta">People</div>
-        </article>
-
-        <article class="card" data-cat="nature" data-caption="Sunrise over the hills">
-          <img src="https://picsum.photos/seed/nature3/1200/800" alt="Sunrise over the hills" loading="lazy">
-          <div class="meta">Nature</div>
-        </article>
-
-        <article class="card" data-cat="city" data-caption="City street at dusk">
-          <img src="https://picsum.photos/seed/city3/1200/800" alt="City street at dusk" loading="lazy">
-          <div class="meta">City</div>
-        </article>
-
-      </section>
-    </main>
+    <!-- Animals -->
+    <img src="https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" class="animals" alt="Tiger">
+    <img src="https://as2.ftcdn.net/v2/jpg/05/06/97/33/1000_F_506973329_NCSJOKETJUZjIW8udBA5LWfZ9vep4kV1.jpg" class="animals" alt="Elephant">
   </div>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-inner">
-      <button class="lb-btn left" id="prev" aria-label="Previous image">◀</button>
-      <button class="lb-btn right" id="next" aria-label="Next image">▶</button>
-      <button class="lb-close" id="lbClose" aria-label="Close lightbox">✕</button>
-      <img id="lbImage" src="" alt="" />
-      <div class="caption" id="lbCaption"></div>
-    </div>
+  <div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">✖</span>
+    <span class="prev" onclick="changeImage(-1)">❮</span>
+    <img id="lightbox-img" src="">
+    <span class="next" onclick="changeImage(1)">❯</span>
   </div>
 
   <script>
-    (function(){
-      const gallery = document.getElementById('gallery');
-      const cards = Array.from(gallery.querySelectorAll('.card'));
-      const lightbox = document.getElementById('lightbox');
-      const lbImage = document.getElementById('lbImage');
-      const lbCaption = document.getElementById('lbCaption');
-      const prevBtn = document.getElementById('prev');
-      const nextBtn = document.getElementById('next');
-      const lbClose = document.getElementById('lbClose');
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    let currentIndex = 0;
 
-      let currentIndex = -1;
-      let activeFilter = 'all';
-
-      function openLightbox(index){
-        const card = visibleCards()[index];
-        if(!card) return;
-        const img = card.querySelector('img');
-        lbImage.src = img.src;
-        lbImage.alt = img.alt || '';
-        lbCaption.textContent = card.dataset.caption || '';
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden','false');
+    // Open lightbox
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = img.src;
         currentIndex = index;
-      }
-      function closeLightbox(){
-        lightbox.classList.remove('open');
-        lightbox.setAttribute('aria-hidden','true');
-        lbImage.src = '';
-        currentIndex = -1;
-      }
-      function showNext(){
-        const v = visibleCards();
-        if(v.length===0) return;
-        currentIndex = (currentIndex + 1) % v.length;
-        openLightbox(currentIndex);
-      }
-      function showPrev(){
-        const v = visibleCards();
-        if(v.length===0) return;
-        currentIndex = (currentIndex - 1 + v.length) % v.length;
-        openLightbox(currentIndex);
-      }
-
-      // visible cards according to filter
-      function visibleCards(){
-        return cards.filter(c => c.style.display !== 'none');
-      }
-
-      // Attach click listeners to cards
-      cards.forEach((card,i)=>{
-        card.addEventListener('click', ()=>{
-          // compute index within visible set
-          const v = visibleCards();
-          const idx = v.indexOf(card);
-          openLightbox(idx);
-        });
       });
+    });
 
-      // Lightbox buttons
-      nextBtn.addEventListener('click', (e)=>{ e.stopPropagation(); showNext(); });
-      prevBtn.addEventListener('click', (e)=>{ e.stopPropagation(); showPrev(); });
-      lbClose.addEventListener('click', closeLightbox);
+    // Close lightbox
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+    }
 
-      // click overlay to close
-      lightbox.addEventListener('click', (e)=>{
-        if(e.target === lightbox) closeLightbox();
-      });
+    // Change image in lightbox
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = galleryImages.length - 1;
+      if (currentIndex >= galleryImages.length) currentIndex = 0;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    }
 
-      // Keyboard navigation
-      window.addEventListener('keydown', (e)=>{
-        if(lightbox.classList.contains('open')){
-          if(e.key === 'ArrowRight') showNext();
-          if(e.key === 'ArrowLeft') showPrev();
-          if(e.key === 'Escape') closeLightbox();
+    // Filtering
+    function filterImages(category) {
+      galleryImages.forEach(img => {
+        if (category === 'all' || img.classList.contains(category)) {
+          img.style.display = 'block';
+        } else {
+          img.style.display = 'none';
         }
       });
-
-      // Category filters
-      const cats = document.querySelectorAll('.category');
-      cats.forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          cats.forEach(b=>b.classList.remove('active'));
-          btn.classList.add('active');
-          activeFilter = btn.dataset.cat;
-          applyFilter();
-        });
-      });
-      function applyFilter(){
-        cards.forEach(card=>{
-          const cat = card.dataset.cat;
-          if(activeFilter === 'all' || cat === activeFilter) card.style.display = '';
-          else card.style.display = 'none';
-        });
-        // reset currentIndex for lightbox
-        currentIndex = -1;
-      }
-
-      // Image filter toggles (CSS filters)
-      const grayscale = document.getElementById('grayscale');
-      const sepia = document.getElementById('sepia');
-      const clearBtn = document.getElementById('clearFilters');
-
-      function updateImageFilters(){
-        cards.forEach(card=>{
-          const img = card.querySelector('img');
-          let fs = [];
-          if(grayscale.classList.contains('active')) fs.push('grayscale(1)');
-          if(sepia.classList.contains('active')) fs.push('sepia(0.45)');
-          img.style.filter = fs.join(' ');
-        });
-      }
-      grayscale.addEventListener('click', ()=>{ grayscale.classList.toggle('active'); updateImageFilters(); });
-      sepia.addEventListener('click', ()=>{ sepia.classList.toggle('active'); updateImageFilters(); });
-      clearBtn.addEventListener('click', ()=>{ grayscale.classList.remove('active'); sepia.classList.remove('active'); applyFilter(); updateImageFilters(); });
-
-      // Support touch swipe in lightbox (simple horizontal swipe)
-      let startX = 0;
-      lbImage.addEventListener('touchstart', (e)=>{ startX = e.changedTouches[0].clientX; });
-      lbImage.addEventListener('touchend', (e)=>{
-        const dx = e.changedTouches[0].clientX - startX;
-        if(Math.abs(dx) > 40){ if(dx < 0) showNext(); else showPrev(); }
-      });
-
-      // Make sure images scale smoothly when opened
-      lbImage.addEventListener('load', ()=>{ lbImage.style.transform = 'scale(1.01)'; setTimeout(()=>{lbImage.style.transform='scale(1)';},120); });
-
-      // initial filter
-      applyFilter();
-    })();
+    }
   </script>
 </body>
 </html>
