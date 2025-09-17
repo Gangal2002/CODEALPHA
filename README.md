@@ -24,21 +24,6 @@ This repository contains all the tasks I have completed during my internship/pro
 
 ---
 
-## 📂 Project Structure
-
-project-folder/
-├── calculator/
-│ └── index.html
-├── image-gallery/
-│ └── index.html
-├── music-player/
-│ └── index.html
-├── portfolio/
-│ └── index.html
-└── README.md
-
----
-
 ## 🛠️ Technologies Used
 
 - HTML 
@@ -50,7 +35,7 @@ project-folder/
 
 ## 📌 Notes
 
-- All projects are **responsive** and compatible with desktop and mobile browsers.  
-- File names and paths are **case-sensitive**, so check if any assets are not loading.  
+- All projects are **responsive** and compatible with desktop and mobile browsers.    
 - Access all projects directly via the GitHub Pages links above.
 
+---
