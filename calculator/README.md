@@ -21,6 +21,8 @@ A responsive **Calculator** built using **HTML, CSS, and JavaScript** as part of
 
 ## 📸 Screenshot
 
+- Live Demo: [Open Calculator](https://gangal2002.github.io/CodeAlpha/calculator/index.html)
+
 ### Calculator View  
  
 <img width="1920" height="864" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/12c3e61e-c913-449e-be85-bfe4885eef6d" />
