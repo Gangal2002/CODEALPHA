@@ -16,6 +16,8 @@ A responsive **Image Gallery** built using **HTML, CSS, and JavaScript** as part
 
 ## 📸 Screenshot
 
+- Live Demo: [Open Image Gallery](https://gangal2002.github.io/CodeAlpha/image-gallery/index.html)
+
 ### Gallery View  
 <img width="1920" height="871" alt="Screenshot (62)" src="https://github.com/user-attachments/assets/d253d10f-80bc-4d11-b7ab-e0bf9f7f81cd" />
 
