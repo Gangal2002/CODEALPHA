@@ -16,7 +16,7 @@ This repository contains all the tasks I have completed during my internship/pro
 
 3. **Portfolio**  
    - Description: My complete portfolio showcasing all the tasks/projects I have completed.  
-   - Live Demo: [Open Music Player](https://gangal2002.github.io/CodeAlpha/portfolio/index.html)
+   - Live Demo: [Open Portfolio](https://gangal2002.github.io/CodeAlpha/portfolio/index.html)
 
 4. **Music Player**  
    - Description: Custom music player interface with play, pause, and track navigation controls.  
