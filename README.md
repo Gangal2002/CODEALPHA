@@ -21,5 +21,36 @@ This repository contains all the tasks I have completed during my internship/pro
 4. **Music Player**  
    - Description: Custom music player interface with play, pause, and track navigation controls.  
    - Live Demo: [Open Music Player](https://gangal2002.github.io/CodeAlpha/music-player/index.html)
-   - 
+
 ---
+
+## 📂 Project Structure
+
+project-folder/
+├── calculator/
+│ └── index.html
+├── image-gallery/
+│ └── index.html
+├── music-player/
+│ └── index.html
+├── portfolio/
+│ └── index.html
+└── README.md
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML 
+- CSS 
+- JavaScript  
+- Git & GitHub Pages for deployment  
+
+---
+
+## 📌 Notes
+
+- All projects are **responsive** and compatible with desktop and mobile browsers.  
+- File names and paths are **case-sensitive**, so check if any assets are not loading.  
+- Access all projects directly via the GitHub Pages links above.
+
