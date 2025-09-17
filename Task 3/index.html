@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganga L | Portfolio</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      scroll-behavior: smooth;
+    }
+    body { background: #f5f5f5; color: #333; }
+
+    /* Navbar */
+    header {
+      position: fixed; width: 100%; top: 0;
+      background: #222; color: #fff;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 50px; z-index: 1000;
+    }
+    header h1 { font-size: 22px; }
+    nav a {
+      color: #fff; margin-left: 20px; text-decoration: none;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #00adb5; }
+
+    /* Hero */
+    .hero {
+      height: 100vh; display: flex; justify-content: center; align-items: center;
+      flex-direction: column; text-align: center;
+      background: linear-gradient(135deg,#00adb5,#393e46);
+      color: #fff; padding: 20px;
+    }
+    .hero h2 { font-size: 40px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; margin-bottom: 20px; }
+    .btn {
+      padding: 10px 20px; background: #fff; color: #00adb5; border: none;
+      border-radius: 5px; text-decoration: none; transition: 0.3s;
+    }
+    .btn:hover { background: #00adb5; color: #fff; }
+
+    section {
+      padding: 80px 10%; min-height: 100vh;
+    }
+    h2.section-title { text-align: center; margin-bottom: 40px; font-size: 28px; color: #00adb5; }
+
+    /* About */
+    .about p { max-width: 700px; margin: auto; font-size: 18px; line-height: 1.6; }
+
+    /* Skills */
+    .skills-list {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+      gap: 20px; text-align: center;
+    }
+    .skills-list div {
+      padding: 20px; background: #fff; border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .skills-list div:hover { transform: scale(1.05); }
+
+    /* Projects */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: #fff; padding: 20px; border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .project-card:hover { transform: translateY(-10px); }
+
+    /* Contact */
+    .contact-info { text-align: center; font-size: 18px; line-height: 2; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 15px; background: #222; color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>Ganga L</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Hello, I'm Ganga 👩‍💻</h2>
+    <p>Final Year BE | Computer Science | Web Developer Intern</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2 class="section-title">About Me</h2>
+    <p>
+      I am Ganga, a final year BE student in Computer Science with a passion for Web Development, 
+      Machine Learning and building impactful software solutions. Currently doing internships to sharpen 
+      my skills and contribute to real-world projects.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-list">
+      <div>HTML</div>
+      <div>CSS</div>
+      <div>JavaScript</div>
+      <div>Python</div>
+      <div>Machine Learning</div>
+      <div>SQL</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Crop Price Prediction</h3>
+        <p>ML model predicting crop prices using ARIMA, LSTM, Prophet, and Random Forest. Deployed as a full-stack web app.</p>
+      </div>
+      <div class="project-card">
+        <h3>Greenwash Detector</h3>
+        <p>A web application that detects misleading environmental claims using NLP techniques.</p>
+      </div>
+      <div class="project-card">
+        <h3>Animal image recognition</h3>
+        <p>A deep learning model that classifies animals from images with high accuracy using CNNs. Built with Python and TensorFlow, showcasing real-time recognition capabilities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume">
+    <h2 class="section-title">Resume</h2>
+    <p style="text-align:center;">
+      <a href="https://drive.google.com/file/d/15ncQvRgISQv9aRwhsZJI-AugbvD-SEPF/view?usp=drive_link" class="btn" target="_blank">Download My Resume</a>
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-info">
+      📧 ganga09mys@gmail.com <br>
+      🔗 <a href="https://github.com/Gangal2002" target="_blank">GitHub</a> | 
+      💼 <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Ganga. All rights reserved.
+  </footer>
+
+</body>
+</html>
+f
