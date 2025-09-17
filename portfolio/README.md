@@ -16,7 +16,9 @@ It showcases my **skills, projects, resume, and contact information** in a profe
 ---
 
 ## 📸 Screenshot  
- -Live Demo(https://gangal2002.github.io/CodeAlpha/portfolio/index.html)
+
+ - Live Demo: [Open Music Player](https://gangal2002.github.io/CodeAlpha/music-player/index.html)
+   
 ### Portfolio Home View  
 
 <img width="1900" height="867" alt="Screenshot (64)" src="https://github.com/user-attachments/assets/8fe30de4-cd53-4d6c-9c7f-afc380e8a930" />
