@@ -1,4 +1,4 @@
-# My Web Development Tasks
+# Frontend Development Tasks
 
 This repository contains all the tasks I have completed during my internship/project work. Each task is hosted live on **GitHub Pages**.  
 
