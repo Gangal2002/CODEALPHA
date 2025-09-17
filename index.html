@@ -6,90 +6,97 @@
   <title>Internship Tasks</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #2c3e50, #34495e);
       color: white;
       text-align: center;
-      margin: 0;
-      padding: 0;
     }
-    header {
-      padding: 30px;
-      font-size: 2em;
-      font-weight: bold;
+
+    h1 {
+      margin: 30px 0;
+      font-size: 2.5rem;
     }
+
     .tasks {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
-      padding: 40px;
+      padding: 20px;
     }
-    .task-card {
-      background: rgba(255, 255, 255, 0.1);
+
+    .card {
+      background: #222;
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      width: 280px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       transition: transform 0.2s ease-in-out;
     }
-    .task-card:hover {
+
+    .card:hover {
       transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.2);
     }
-    .task-card h2 {
-      margin: 10px 0;
+
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
     }
-    .task-card a {
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      color: #bbb;
+    }
+
+    .card a {
       display: inline-block;
-      margin-top: 10px;
       text-decoration: none;
-      color: #0ff;
+      color: cyan;
       font-weight: bold;
     }
+
     footer {
-      margin: 30px;
-      font-size: 0.9em;
-      color: #ccc;
+      margin: 30px 0;
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <header>🚀 Internship Tasks</header>
 
-  <section class="tasks">
-    <div class="task-card">
-      <h2>Task 1</h2>
-      <div class="task-card">
-      <h2>🖼️ Image Gallery</h2>
-      <p>Elegant image gallery with lightbox & navigation features.</p>
-      <a href="https://Gangal2002.github.io/image-gallery/" target="_blank">Live Demo</a>
-    </div>
-      
-      <h2>Task 2</h2>
-      <div class="task-card"> 
-      <h2>🧮 Calculator</h2>
-      <p>Simple calculator built using HTML, CSS, and JavaScript.</p>
-      <a href="https://Gangal2002.github.io/calculator/" target="_blank">Live Demo</a>
-    </div>
+  <h1>🚀 Internship Tasks</h1>
 
-      <h2>Task 3</h2>
-      <div class="task-card">
+  <div class="tasks">
+    <div class="card">
       <h2>🌐 Portfolio Website</h2>
       <p>A responsive personal portfolio built with HTML, CSS, and JS.</p>
-      <a href="https://your-username.github.io/portfolio/" target="_blank">Live Demo</a>
+      <a href="portfolio/index.html" target="_blank">Live Demo</a>
     </div>
 
-      <h2>Task 4</h2>
-      <div class="task-card">
+    <div class="card">
       <h2>🎵 Music Player</h2>
       <p>Interactive music player with playlist & now playing section.</p>
-      <a href="https://Gangal2002.github.io/music-player/" target="_blank">Live Demo</a>
+      <a href="Music-Player/index.html" target="_blank">Live Demo</a>
     </div>
 
-    
+    <div class="card">
+      <h2>🖼️ Image Gallery</h2>
+      <p>Elegant image gallery with lightbox & navigation features.</p>
+      <a href="Image-Gallery/index.html" target="_blank">Live Demo</a>
+    </div>
 
-    
-  </section>
+    <div class="card">
+      <h2>🧮 Calculator</h2>
+      <p>Simple calculator built using HTML, CSS, and JavaScript.</p>
+      <a href="calculator/index.html" target="_blank">Live Demo</a>
+    </div>
+  </div>
 
-  <footer>© 2025 Ganga L | Internship @CodeAlpha</footer>
+  <footer>
+    © 2025 Ganga L | Internship @CodeAlpha
+  </footer>
+
 </body>
 </html>
