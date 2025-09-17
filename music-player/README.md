@@ -19,6 +19,8 @@ It allows users to **play music, manage playlists, and control playback** in a c
 
 ## 📸 Screenshot  
 
+- Live Demo: [Open Music Player](https://gangal2002.github.io/CodeAlpha/music-player/index.html)
+
 ### 🎼 Music Player View
 
 <img width="1920" height="868" alt="Screenshot (66)" src="https://github.com/user-attachments/assets/777d34b3-9428-4ac7-85b6-da1c1481ce75" />
