@@ -37,5 +37,3 @@ This repository contains all the tasks I have completed during my internship/pro
 
 - All projects are **responsive** and compatible with desktop and mobile browsers.    
 - Access all projects directly via the GitHub Pages links above.
-
----
